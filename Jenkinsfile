@@ -35,7 +35,7 @@ pipeline {
                 script {
                     sh """
                     kubectl --insecure-skip-tls-verify set image deployment/web-app \
-                      YOUR_CONTAINER_NAME=${IMAGE_NAME}:${BUILD_NUMBER} \
+                      web-app=${IMAGE_NAME}:${BUILD_NUMBER} \
                       -n web-app \
                       --kubeconfig /home/ubuntu/kubeconfig
                     """
