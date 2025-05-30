@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('docker-creds') // Replace with Jenkins credentials ID
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub') // Replace with Jenkins credentials ID
         IMAGE_NAME = 'shivani446/web-app'
     }
 
@@ -24,7 +24,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'docker-creds') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
                         docker.image("${IMAGE_NAME}:${BUILD_NUMBER}").push()
                     }
                 }
