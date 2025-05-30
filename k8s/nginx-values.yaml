@@ -1,0 +1,5 @@
+controller:
+  config:
+    use-forwarded-headers: "true"
+    enable-underscores-in-headers: "true"
+    ignore-invalid-headers: "false"
