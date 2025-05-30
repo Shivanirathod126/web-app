@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                    kubectl set image deployment/your-deployment-name your-container-name=${IMAGE_NAME}:${BUILD_NUMBER} --kubeconfig=/path/to/kubeconfig
+                    kubectl set image deployment/your-deployment-name your-container-name=${IMAGE_NAME}:${BUILD_NUMBER} --kubeconfig=/etc/rancher/k3s/k3s.yaml
                     """
                 }
             }
