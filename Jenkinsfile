@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git credentialsId: 'github-pass', url: 'https://github.com/Shivanirathod126/web-app.git'
+                git branch: 'main', credentialsId: 'github-pass', url: 'https://github.com/Shivanirathod126/web-app.git'
             }
         }
 
