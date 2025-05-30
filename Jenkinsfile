@@ -31,15 +31,15 @@ pipeline {
             }
         }
 
-        // Uncomment this stage if you're ready to deploy
-        // stage('Deploy to Kubernetes') {
-        //     steps {
-        //         script {
-        //             sh """
-        //             kubectl set image deployment/your-deployment-name your-container-name=${IMAGE_NAME}:${BUILD_NUMBER} --kubeconfig=/path/to/kubeconfig
-        //             """
-        //         }
-        //     }
-        // }
+        Uncomment this stage if you're ready to deploy
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    sh """
+                    kubectl set image deployment/your-deployment-name your-container-name=${IMAGE_NAME}:${BUILD_NUMBER} --kubeconfig=/path/to/kubeconfig
+                    """
+                }
+            }
+        }
     }
 }
