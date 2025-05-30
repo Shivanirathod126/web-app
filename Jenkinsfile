@@ -32,3 +32,16 @@ pipeline {
         }
     }
 }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    sh """
+                    kubectl set image deployment/web-app \
+                      YOUR_CONTAINER_NAME=${IMAGE_NAME}:${BUILD_NUMBER} \
+                      -n web-app \
+                      --kubeconfig /home/ubuntu/kubeconfig
+                    """
+                }
+            }
+        }
